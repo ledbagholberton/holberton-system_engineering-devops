@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -noleaf -type d -name "*" | wc -l
+find . -type d -mindepth 1 -name "*" | wc -l
