@@ -1,0 +1,2 @@
+0;136;0c0;136;0c0;136;0c0;136;0c0;136;0c#!/bin/bash
+sort | cut -f1 | uniq -c| sort -k 1 -n -r | head -11| cut -d " " -f6
