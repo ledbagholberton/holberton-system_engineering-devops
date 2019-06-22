@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display 10 times Holberton School with while
+i=0
+until [ $i -gt 9 ]; do echo "Holberton School" ; ((i++ )); done

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Display 10 times Holberton School and Hi in pos 9
+i=1
+while [ $i -lt 21 ]
+do
+    echo $i
+    if [ $i -eq 4 ]
+    then
+	echo "bad luck from China"
+    else
+	if [ $i -eq 9 ]
+	then
+	    echo $i
+	    echo "bad luck from Japan"
+	else
+	    if [ $i -eq 17 ]
+	    then
+		echo $i
+		echo "bad luck from Japan"
+	    fi
+	fi
+    fi
+    ((i++ ))
+done

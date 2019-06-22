@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Display 10 times Holberton School and Hi in pos 9
+i=0
+while [ $i -lt 11 ]
+do
+    if [ $i -eq 9 ]
+    then
+	echo "Hi"
+    else
+	echo "Holberton School"
+    fi
+    ((i++ ))
+done
