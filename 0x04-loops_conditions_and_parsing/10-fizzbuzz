@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
 # FizzBuzz
 i=1
-while [ $i -lt 100 ]
+a=i % 3
+b=i % 5
+while [ $i -lt 20 ]
 do
-    a = i % 3
-    b = i % 5
-    if [ $a = 0 ]
+    if (a==0)
     then
-	if[ $b = 0 ]
+	if (b==0)
 	then
 	    echo "FizzBuzz"
 	else
-	    echo "$i"
+	    echo "Fizz"
 	fi
     else
-	echo "Fizz"
-
+	if (b==0)
+	then
+	    echo "Buzz"
+	else
+	    echo $i
+	fi
+    fi
     ((i++ ))
 done

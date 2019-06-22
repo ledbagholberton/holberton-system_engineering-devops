@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script
+for file in /etc/passwd
+do
+	
