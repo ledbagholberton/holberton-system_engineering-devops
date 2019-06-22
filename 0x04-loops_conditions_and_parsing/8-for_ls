@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Holberton School" 10 times
+# This script cut the numbers  in ls
 for i in $( ls )
 do
     echo $i | cut -d "-" -f2-
