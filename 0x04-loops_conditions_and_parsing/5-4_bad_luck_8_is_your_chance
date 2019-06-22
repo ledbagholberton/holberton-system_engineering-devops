@@ -6,13 +6,11 @@ do
     if [ $i -eq 4 ]
     then
 	echo "bad luck"
-    else
-	if [ $i -eq 8 ]
+    elif [ $i -eq 8 ]
 	then
 	    echo "good luck"
 	else
 	    echo "Holberton School"
-	fi
     fi
     ((i++ ))
 done
