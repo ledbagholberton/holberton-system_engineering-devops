@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script print the current process
+i=0
+while [ $i -le 1 ]
+do
+    echo "To infinity and beyond"
+    sleep  2
+    trap 'echo "I am invincible!!!"' 15
+done
