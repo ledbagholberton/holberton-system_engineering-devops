@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # This script print the current process
-echo $(pidof "100-process_and_pid_file") > /var/run/holbertonscript.pid
+caza()
+{
+	rm /var/run/holbertonscript.pid
+	i=2
+}
+pidof "100-process_and_pid_file" > /var/run/holbertonscript.pid
 i=0
 while [ $i -le 1 ]
 do
@@ -8,11 +13,5 @@ do
 	sleep 2
 	trap 'echo "I hate the kill command"' 15
 	trap 'echo "Y U no love me?!"' 2
-	trap 'caza' 3, 15
+	trap caza 3 15
 done
-
-function caza()
-{
-	rm /var/run/holbertonscript.pid
-	i=2
-}
