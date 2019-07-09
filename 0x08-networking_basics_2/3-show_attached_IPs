@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Return the IPv4 active on the machine
+ifconfig | grep -Po "t addr:\K[\d.]+"
