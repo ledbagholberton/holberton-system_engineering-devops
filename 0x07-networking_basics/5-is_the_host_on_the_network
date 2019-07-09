@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ping $1 -c5
