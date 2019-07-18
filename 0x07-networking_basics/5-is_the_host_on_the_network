@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Send 5 times a ping to a [argv] host
+ping "$1" -c5

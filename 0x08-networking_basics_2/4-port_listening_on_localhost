@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Using netcat (nc) listen any  tx to port 98
+# nc -l 98 means put in mode server the por 98
+nc -l 98
