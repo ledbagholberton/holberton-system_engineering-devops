@@ -5,7 +5,7 @@ caza()
 	rm /var/run/holbertonscript.pid
 	i=2
 }
-pidof "100-process_and_pid_file" > /var/run/holbertonscript.pid
+echo $$ > /var/run/holbertonscript.pid
 i=0
 while [ $i -le 1 ]
 do
