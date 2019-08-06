@@ -1,7 +1,8 @@
+#File creation in temp directory
 file { '/tmp/holberton':
+  ensure  => 'file',
   content => 'I love Puppet',
-  ensure => 'file',
-  owner  => 'www-data',
-  group  => 'www-data',
-  mode   => '0744'
+  owner   => 'www-data',
+  group   => 'www-data',
+  mode    => '0744'
 }
