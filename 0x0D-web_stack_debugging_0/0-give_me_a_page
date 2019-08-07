@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Solving a problem 52 Empty
+sudo service apache2 start
