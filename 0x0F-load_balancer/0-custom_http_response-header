@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#Setting the HTTP header
+sudo apt-get update
+#First update the server for new releases
+sudo apt-get install nginx -y
+#Second install nginx with flag -y (Yes to all)
+sudo ufw allow 'Nginx HTTP'
+#Third ufw filter firewall  alowing Nginx HTTP
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+#Fourth send the string Holberton School as Index, in order to show this message
+#when the IP is required via curl o via browser
+new_string="listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}"
+#Fifth - Build a string with enter & tabs including escape chars.
+sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+#replace in file the String listen 80 ... for new_string
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+new_string="listen 80 default_server;\\nerror_page 404 \/404.html;\\n\\tlocation = \/404.html {\\n\\t\\troot \/usr\/share\/nginx\/html;\\n\\t\\tinternal;\\n\\t}"
+#same last command ... here defines location of 404 file
+sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+new_string2="http {\\n\\tadd_header X-Served-By \"$HOSTNAME\";"
+#same. Here the new string  add header X-Served-By and the hostname
+sudo sed -i "s/http {/$new_string2/" /etc/nginx/nginx.conf
+#include the new string in the file nginx.conf
+sudo service nginx start
+#restart the service
