@@ -7,8 +7,7 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy=1.5.\*
 echo "frontend myfrontend
          bind *:80
-         default_backend haproxy_http" | sudo tee /etc/haproxy/haproxy.cfg
-
+         default_backend web_backend" | sudo tee /etc/haproxy/haproxy.cfg
 echo "backend web-backend
          balance roundrobin
             server web1 35.29.25.153:80 check
