@@ -10,8 +10,7 @@ command => 'usr/bin/apt-get update'
 -> file_line {'header':
 path => 'etc/nginx/conf/nginx.conf',
 match => 'http {',
-line => "http {
-     	add_header X-Served_By "${hostname}";",
+line => "http {\n\tadd_header X-Served_By \"${hostname}\";",
 }
 
 -> exec {'restart':
