@@ -10,6 +10,6 @@ echo "frontend http_front
          default_backend http_rear
       backend http_rear
          balance roundrobin
-            server web1 35.29.25.153:80 check
-            server web2 34.73.159.23:80 check" | sudo tee /etc/haproxy/haproxy.cfg
+            server web-01 35.29.25.153:80 check
+            server web-02 34.73.159.23:80 check" | sudo tee /etc/haproxy/haproxy.cfg
 sudo service haproxy start
