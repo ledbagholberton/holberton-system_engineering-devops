@@ -4,7 +4,7 @@ command => 'usr/bin/apt-get update'
 }
 
 -> package {'nginx':
-  ensure => 'installed'
+  ensure => 'present'
 }
 
 -> file_line {'header':
@@ -15,6 +15,6 @@ line => "http {
 }
 
 -> exec {'restart':
-command => 'usr/bin/service ngnix reload',
-command => 'usr/bin/service nginx restart',
+command => 'usr/sbin/service ngnix reload',
+command => 'usr/sbin/service nginx restart',
 }
