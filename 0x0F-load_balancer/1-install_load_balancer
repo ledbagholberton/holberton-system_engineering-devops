@@ -5,7 +5,11 @@ sudo apt-get -y install software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-1.5
 sudo apt-get -y update
 sudo apt-get -y install haproxy=1.5.\*
-echo  "backend web-backend
+echo "frontend myfrontend
+         bind *:80
+         default_backend haproxy_http" | sudo tee /etc/haproxy/haproxy.cfg
+
+echo "backend web-backend
          balance roundrobin
             server web1 35.29.25.153:80 check
             server web2 34.73.159.23:80 check" | sudo tee /etc/haproxy/haproxy.cfg
