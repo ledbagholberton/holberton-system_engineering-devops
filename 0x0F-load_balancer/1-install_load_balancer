@@ -4,7 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y install software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-1.5
 sudo apt-get -y update
-sudo apt-get -y install haproxy=1.5.\*
+sudo apt-get install haproxy=1.7.\* -y
 echo "frontend http_front
          bind *:80
          default_backend http_rear
