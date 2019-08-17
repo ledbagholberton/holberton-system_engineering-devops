@@ -15,6 +15,5 @@ line => "http {
 }
 
 -> exec {'restart':
-command => 'usr/sbin/service ngnix reload',
 command => 'usr/sbin/service nginx restart',
 }
