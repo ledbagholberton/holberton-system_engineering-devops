@@ -13,6 +13,6 @@ match => 'http {',
 line => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
 
--> exec {'restart':
-command => 'usr/sbin/service nginx restart',
+-> exec {'start':
+command => 'usr/sbin/service nginx start',
 }
