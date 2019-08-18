@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-#Debugging trying to find a mistake with port 80
+#Debugging trying to fix a mistake with port 80 - substituion 8080
+sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+pkill nginx
