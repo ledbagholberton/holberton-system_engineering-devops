@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Debugging trying to fix a mistake with port 80 - substituion 8080
 awk '{gsub(/8080/,"80")}1' /etc/nginx/sites-enabled/default
-service ngnix start
+service nginx start
