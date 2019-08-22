@@ -1,2 +1,2 @@
-#!/bin/bash env
+#!/bin/bash
 sudo -u $1 whoami
