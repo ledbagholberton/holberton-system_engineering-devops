@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-#Print domains & subdomains
 #shellcheck disable=SC2086
+#Print domains & subdomains
 if [ $# -eq 1 ]
 then
     subdominio='www lb-01 web-01 web-02'
