@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
 #Print domains & subdomains
-dig www.d-i-a.tech
-echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
+if [ $# -eq 1 ]
+then
+    subdominio='www lb-01 web-01 web-02'
+else
+    subdominio="$2"
+fi
+for sub in $subdominio
+do
+    echo -n "The subdomain $sub"
+    dig "$sub.$1" | awk 'NR == 14 {printf " is a %s record and points to %s\n", $4, $5}'
+done
