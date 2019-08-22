@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Print domains & subdomains
+dig www.d-i-a.tech
+echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
