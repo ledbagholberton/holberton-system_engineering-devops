@@ -8,7 +8,7 @@ command => 'usr/bin/apt-get update'
 }
 
 -> file_line {'header':
-path => 'etc/nginx/conf/nginx.conf',
+path => 'etc/nginx/nginx.conf',
 match => 'http {',
 line => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
