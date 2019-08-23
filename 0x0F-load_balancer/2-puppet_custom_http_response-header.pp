@@ -4,7 +4,7 @@ command => 'usr/bin/apt-get update'
 }
 
 -> package {'nginx':
-  ensure => 'present'
+  ensure => 'installed'
 }
 
 -> file_line {'header':
@@ -14,5 +14,5 @@ line => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
 
 -> exec {'start':
-command => 'usr/sbin/service nginx start',
+command => 'usr/sbin/service nginx restart',
 }
