@@ -26,7 +26,6 @@ if __name__ == "__main__":
                           'TASK_TITLE']
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames,
                                     dialect='myDialect')
-            writer.writeheader()
             for tasks in list2:
                 if tasks.get('userId') == int(my_id):
                     status = tasks.get('completed')
