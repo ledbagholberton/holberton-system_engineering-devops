@@ -24,5 +24,6 @@ if __name__ == "__main__":
                 text = tasks.get('title')
                 dict_tasks[my_id].append({"task": text, "completed":
                                          status, "username": username})
-        with open('USER_ID.json', 'w') as outfile:
+        name = "{}.json".format(my_id)
+        with open(name, 'w') as outfile:
             json.dump(dict_tasks, outfile)

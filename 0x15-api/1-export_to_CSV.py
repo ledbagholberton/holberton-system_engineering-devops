@@ -17,11 +17,14 @@ if __name__ == "__main__":
         list2 = requests.get(url2).json()
         dict_tasks = {}
         t_total = 0
-        with open('USER_ID.csv', mode='w') as csv_file:
+        name = "{}.csv".format(my_id)
+        csv.register_dialect('myDialect', quoting=csv.QUOTE_ALL,
+                             skipinitialspace=True)
+        with open(name, mode='w') as csv_file:
             fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
                           'TASK_TITLE']
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames,
-                                    quotechar='"')
+                                    dialect='myDialect')
             writer.writeheader()
             for tasks in list2:
                 if tasks.get('userId') == int(my_id):
