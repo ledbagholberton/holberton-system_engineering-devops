@@ -17,12 +17,13 @@ if __name__ == "__main__":
     url2 = 'https://jsonplaceholder.typicode.com/todos'
     list2 = requests.get(url2).json()
     for my_id in user_list:
+        username = name_list[my_id - 1]
         dict_tasks[my_id] = []
         for users in list2:
             if my_id == users.get('userId'):
                 status = users.get('completed')
                 text = users.get('title')
                 dict_tasks[my_id].append({"task": text, "completed":
-                                          status})
+                                          status, "username": username})
     with open('todo_all_employees.json', 'w') as outfile:
         json.dump(dict_tasks, outfile)
