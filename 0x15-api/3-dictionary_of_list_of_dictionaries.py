@@ -7,20 +7,22 @@ import sys
 
 if __name__ == "__main__":
     user_list = []
+    name_list = []
     url = 'https://jsonplaceholder.typicode.com/users/'
     dict1 = requests.get(url).json()
-    dict_tasks = {}
     for users in dict1:
-        my_id = users.get('id')
-        username = users.get('username')
-        url2 = 'https://jsonplaceholder.typicode.com/users/{}/todos'.\
-               format(my_id)
-        list2 = requests.get(url2).json()
+        user_list.append(users.get('id'))
+        name_list.append(users.get('username'))
+    dict_tasks = {}
+    url2 = 'https://jsonplaceholder.typicode.com/todos'
+    list2 = requests.get(url2).json()
+    for my_id in user_list:
         dict_tasks[my_id] = []
-        for tasks in list2:
-            status = tasks.get('completed')
-            text = tasks.get('title')
-            dict_tasks[my_id].append({"task": text, "completed":
-                                      status, "username": username})
+        for users in list2:
+            if my_id == users.get('userId'):
+                status = users.get('completed')
+                text = users.get('title')
+                dict_tasks[my_id].append({"task": text, "completed":
+                                          status})
     with open('todo_all_employees.json', 'w') as outfile:
         json.dump(dict_tasks, outfile)
