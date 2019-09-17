@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ Exporting csv files"""
+import json
 import requests
 import sys
-import json
+
 
 if __name__ == "__main__":
     user_list = []
