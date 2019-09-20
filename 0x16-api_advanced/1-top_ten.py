@@ -18,6 +18,6 @@ def top_ten(subreddit):
     if r.status_code == 200:
         list_titles = r.json()['data']['children']
         for a in list_titles[:9]:
-            return(a['data']['title'])
+            print(a['data']['title'])
     else:
-        return("None")
+        return(print("None"))
