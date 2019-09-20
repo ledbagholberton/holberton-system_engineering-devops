@@ -5,7 +5,7 @@ import requests
 import sys
 
 
-def top_ten(subreddit):
+def recurse(subreddit, hot_list=[]):
     """Read reddit API and return top 10 hotspots """
     username = 'ledbag123'
     password = 'Reddit72'
@@ -15,9 +15,10 @@ def top_ten(subreddit):
     client = requests.session()
     client.headers = headers
     r = client.get(url, allow_redirects=False)
-    if r.status_code == 200:
+    try:
         list_titles = r.json()['data']['children']
-        for a in list_titles[:9]:
-            return(a['data']['title'])
-    else:
+        while (len(hot_list) <= len(list_titles)):
+            hot_list.append(len(hot_list + 1)['data']['title'])
+            recurse(subreddit, hot_list)
+    except:
         return("None")
