@@ -11,7 +11,7 @@ def recurse(subreddit, host_list=[], after="null"):
     password = 'Reddit72'
     user_pass_dict = {'user': username, 'passwd': password, 'api_type': 'json'}
     headers = {'user-agent': '/u/ledbag123 API Python for Holberton School'}
-    payload = {"limit": "150"}
+    payload = {"limit": "100", "after": after}
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     client = requests.session()
     client.headers = headers
@@ -20,6 +20,7 @@ def recurse(subreddit, host_list=[], after="null"):
         list_titles = r.json()['data']['children']
         after = r.json()['data']['after']
         if after is not None:
+            print(len(host_list))
             host_list.append(list_titles[len(host_list)]['data']['title'])
             recurse(subreddit, host_list, after)
         else:
