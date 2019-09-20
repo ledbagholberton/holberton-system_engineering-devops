@@ -1,11 +1,11 @@
-#!/usr/bin/python3
+/usr/bin/python3
 """ Exporting csv files"""
 import json
 import requests
 import sys
 
 
-def recurse(subreddit, host_list=[], after="null"):
+def count_words(subreddit, word_list)
     """Read reddit API and return top 10 hotspots """
     username = 'ledbag123'
     password = 'Reddit72'
@@ -18,11 +18,13 @@ def recurse(subreddit, host_list=[], after="null"):
     r = client.get(url, allow_redirects=False, params=payload)
     if r.status_code == 200:
         list_titles = r.json()['data']['children']
-        after = r.json()['data']['after']
-        host_list.append(list_titles[len(host_list)]['data']['title'])
-        if after is not None:
-            recurse(subreddit, host_list)
+        if (len(host_list) < len(list_titles) - 1):
+            for word in word_list:
+                counter = len([x for x in s.split() if x == word])
+                (list_titles[len(host_list)]['data']['title'])
+                recurse(subreddit, host_list)
         else:
-            return(host_list)
+            print(host_list)
+            return()
     else:
         return(None)
