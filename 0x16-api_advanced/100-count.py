@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 """ Exporting csv files"""
 import json
 import requests
@@ -29,7 +29,8 @@ def count_words(subreddit, word_list, after="null", host_list=[]):
             my_count = [0] * len(word_list)
             for title in host_list:
                 for pos in range(len(word_list)):
-                    counter = len([x for x in title.split() if x == word_list[pos]])
+                    counter = len([x for x in title.split()
+                                   if x == word_list[pos]])
                     my_count[pos] += counter
             for pos in range(len(word_list)):
                 print("{}: {}".format(word_list[pos], my_count[pos]))
