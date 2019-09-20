@@ -19,7 +19,6 @@ def recurse(subreddit, host_list=[], after="null"):
     if r.status_code == 200:
         list_titles = r.json()['data']['children']
         after = r.json()['data']['after']
-        print(len(host_list), "*******", host_list)
         if after is not None:
             host_list.append(list_titles[len(host_list)]['data']['title'])
             recurse(subreddit, host_list, after)
