@@ -11,20 +11,17 @@ def recurse(subreddit, host_list=[]):
     password = 'Reddit72'
     user_pass_dict = {'user': username, 'passwd': password, 'api_type': 'json'}
     headers = {'user-agent': '/u/ledbag123 API Python for Holberton School'}
+    payload = {"limit": "150"}
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     client = requests.session()
     client.headers = headers
-    r = client.get(url, allow_redirects=False)
-    try:
+    r = client.get(url, allow_redirects=False, params=payload)
+    if r.status_code == 200:
         list_titles = r.json()['data']['children']
-        print("list_titles len:", len(list_titles))
-        print("host_list len:", len(host_list))
-        if (len(host_list) <= len(list_titles)):
-            print(list_titles[20]['data']['title'])
-            host_list.append(list_titles[len(host_list + 1)]['data']['title'])
-            print(host_list)
+        if (len(host_list) < len(list_titles)):
+            host_list.append(list_titles[len(host_list)]['data']['title'])
             recurse(subreddit, host_list)
         else:
             return(host_list)
-    except:
+    else:
         return("None")
