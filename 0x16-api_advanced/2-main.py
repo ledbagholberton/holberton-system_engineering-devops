@@ -6,9 +6,9 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Please pass an argument for the subreddit to search.")
     else:
-        host_list=[]
-        result = recurse(sys.argv[1], host_list)
+        result = recurse(sys.argv[1])
         if result is not None:
+            print(result)
             print(len(result))
         else:
             print("None")
