@@ -21,7 +21,7 @@ def recurse(subreddit, host_list=[], after="null"):
         after = r.json()['data']['after']
         host_list.append(list_titles[len(host_list)]['data']['title'])
         if after is not None:
-            recurse(subreddit, host_list)
+            recurse(subreddit, host_list, after)
         else:
             return(host_list)
     else:
